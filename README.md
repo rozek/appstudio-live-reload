@@ -16,7 +16,7 @@ A common solution to this problem is "[live-reloading](http://livereload.com/)" 
 
 ## Prerequisites ##
 
-`appstudio-live-reload` requires Node.js. Since you are visiting this page, the chance is high that you already have Node.js installed on your machine - if not, please follow the instructions found on [nodejs.org](https://nodejs.org/) to install it (the LTS version is sufficient if you don't plan to use Node.js on a regular basis)
+`appstudio-live-reload` requires Node.js. Since you are visiting this page, chances are good that you already have Node.js installed on your machine - if not, please follow the instructions found on [nodejs.org](https://nodejs.org/) to install it (the LTS version is sufficient if you don't plan to use Node.js on a regular basis)
 
 ## Installation ##
 
@@ -29,10 +29,10 @@ npm install --save appstudio-live-reload
 
 ## App Preparation ##
 
-`livereload` requires a small script to be added to your project. Within Appstudio, add the following lines to the `extraFiles` and `extraheaders` of your project settings (found in the "Project Explorer")
+`livereload` requires a small helper script to be added to your project. Within Appstudio, add the following lines to the `extraFiles` and `extraheaders` of your project settings (found in the "Project Explorer")
 
-* extraFiles: `./node_modules/appstudio-live-reload/live-reload.js`
-* extraheaders: `<script src="./node_modules/appstudio-live-reload/live-reload.js "></script>`
+* extraFiles: `live-reload.js`
+* extraheaders: `<script src="live-reload.js "></script>`
 
 Simply copy the shown texts from here into AppStudio. From the next deployment on, your application will automatically be modified and/or reloaded whenever the "live-reload"-capable server is running (see below) and detects any changes in the deployment folder.
 
@@ -44,7 +44,7 @@ The following command starts a "live-reload"-capable web server
 npx appstudio-live-reload
 ```
 
-Start this server prior to your first deployment and leave it running while you are developing. The server will detect any changes in the deployment folder and modify our reload your application accordingly - in any browser from which you are currently using it
+Start this server *prior to your first deployment* (as it will create the above-mentioned helper script) and leave it running while you are developing. The server will detect any changes in the deployment folder and modify our reload your application accordingly - in any browser from which you are currently using it
 
 ## License ##
 
