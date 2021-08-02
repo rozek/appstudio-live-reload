@@ -10,6 +10,6 @@ While this procedure sounds convenient at a first glance, it may become cumberso
 
 A common solution to this problem is "[live-reloading](http://livereload.com/)" of web pages (also available as an [NPM package](https://www.npmjs.com/package/livereload))
 
-This package provides "live-reloading" for AppStudio projects and makes it extremely easy to install and use that feature.
+This package provides "live-reloading" for AppStudio projects and simplifies installation and use of that feature.
 
 **NPM users**: please consider the [Github README](https://github.com/rozek/appstudio-live-reload/blob/main/README.md) for the latest description of this package (as updating the docs would otherwise always require a new NPM package version)
