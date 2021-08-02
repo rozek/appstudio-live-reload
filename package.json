@@ -1,10 +1,10 @@
 {
   "name": "appstudio-live-reload",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "a simple web server with \"live-reload\" for NSB/AppStudio",
   "bin": {
-    "appstudio-live-reload": "./cli.js",
-    "live-reload": "./cli.js"
+    "appstudio-live-reload": "cli.js",
+    "live-reload": "cli.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
