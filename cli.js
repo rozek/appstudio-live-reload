@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 //------------------------------------------------------------------------------
-//--                            livereload-server                             --
+//--                      appstudio-live-reload - Server                      --
 //------------------------------------------------------------------------------
 
 import('javascript-interface-library').then((JIL) => {
