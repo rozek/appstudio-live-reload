@@ -22,8 +22,8 @@ A common solution to this problem is "[live-reloading](http://livereload.com/)" 
 
 `livereload` requires a small helper script to be added to your project. Within Appstudio, add the following lines to the `extraFiles` and `extraheaders` of your project settings (found in the "Project Explorer")
 
-* extraFiles: `live-reload.js`
-* extraheaders: `<script src="live-reload.js"></script>`
+* **extraFiles**: `live-reload.js`
+* **extraheaders**: `<script src="live-reload.js"></script>`
 
 Just "copy-and-paste" the shown texts from here into AppStudio. From the next deployment on - and if the "live-reload"-capable web server is running - your application will automatically be modified and/or reloaded whenever any change in the deployment folder is detected.
 
