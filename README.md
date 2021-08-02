@@ -40,7 +40,9 @@ Simply copy the shown texts from here into AppStudio. From the next deployment o
 
 The following command starts a "live-reload"-capable web server
 
-`npx appstudio-live-reload`
+```
+npx appstudio-live-reload
+```
 
 Start this server prior to your first deployment and leave it running while you are developing. The server will detect any changes in the deployment folder and modify our reload your application accordingly - in any browser from which you are currently using it
 
