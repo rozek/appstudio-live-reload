@@ -10,16 +10,41 @@ While this procedure sounds convenient at a first glance, it may become cumberso
 
 A common solution to this problem is "[live-reloading](http://livereload.com/)" of web pages (also available as an [NPM package](https://www.npmjs.com/package/livereload))
 
-This package provides "live-reloading" for AppStudio projects and simplifies installation and use of that feature.
+`appstudio-live-reload` provides "live-reloading" for AppStudio projects and simplifies installation and use of that feature.
 
 **NPM users**: please consider the [Github README](https://github.com/rozek/appstudio-live-reload/blob/main/README.md) for the latest description of this package (as updating the docs would otherwise always require a new NPM package version)
 
 ## Prerequisites ##
 
-## Use without Installation ##
+`appstudio-live-reload` requires Node.js. Since you are visiting this page, the chance is high that you already have Node.js installed on your machine - if not, please follow the instructions found on [nodejs.org](https://nodejs.org/) to install it (the LTS version is sufficient if you don't plan to use Node.js on a regular basis)
 
-## Installation and Use ##
+## Installation ##
 
+`appstudio-live-reload` has to be installed once per AppStudio project. Just open a terminal window, navigate to the folder for your AppStudio project and use NPM to install the package:
+
+```
+cd XXX.appstudio
+npm install --save appstudio-live-reload
+```
+
+## App Preparation ##
+
+`livereload` requires a small script to be added to your project. Within Appstudio, add the following lines to the `extraFiles` and `extraheaders` of your project settings (found in the "Project Explorer")
+
+* extraFiles: `./node_modules/appstudio-live-reload/live-reload.js`
+* extraheaders: `<script src="./node_modules/appstudio-live-reload/live-reload.js "></script>`
+
+Simply copy the shown texts from here into AppStudio. From the next deployment on, your application will automatically be modified and/or reloaded whenever the "live-reload"-capable server is running (see below) and detects any changes in the deployment folder.
+
+## Usage ##
+
+The following command starts a "live-reload"-capable web server
+
+```
+npx appstudio-live-reload
+```
+
+Start this server prior to your first deployment and leave it running while you are developing. The server will detect any changes in the deployment folder and modify our reload your application accordingly - in any browser from which you are currently using it
 
 ## License ##
 
