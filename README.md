@@ -16,9 +16,9 @@ This package provides "live-reloading" for AppStudio projects and simplifies ins
 
 ## Prerequisites ##
 
-## Installation ##
+## Use without Installation ##
 
-## Usage ##
+## Installation and Use ##
 
 
 ## License ##
