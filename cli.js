@@ -9,6 +9,7 @@ import('javascript-interface-library').then((JIL) => {
   } = JIL
 
   const os      = require('os')
+  const fs      = require('fs')
   const path    = require('path')
   const connect = require('connect')
   const static  = require('serve-static')
@@ -50,6 +51,24 @@ import('javascript-interface-library').then((JIL) => {
       }
     }
   IPAddresses.sort()
+
+/**** provide helper script ****/
+
+  let HelperScript = `//------------------------------------------------------------------------------
+//--                  appstudio-live-reload - Helper Script                   --
+//------------------------------------------------------------------------------
+
+  const ReloadPort = '{{ReloadPort}}'
+  if (ReloadPort !== '') {
+    let ReloadServer = window.location.hostname + ':' + ReloadPort
+
+    let ReloadScript = document.createElement('script')
+      document.head.appendChild(ReloadScript)
+    ReloadScript.src = 'http://' + ReloadServer + '/livereload.js?snipver=1'
+  }
+  `.replace('{{ReloadPort}}',ReloadPort)
+
+  fs.writeFileSync(path.join(BaseFolder,'live-reload.js'),HelperScript)
 
 /**** create, configure and start servers ****/
 
