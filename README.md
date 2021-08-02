@@ -25,7 +25,7 @@ A common solution to this problem is "[live-reloading](http://livereload.com/)" 
 * **extraFiles**: `live-reload.js`
 * **extraheaders**: `<script src="live-reload.js"></script>`
 
-Just "copy-and-paste" the shown texts from here into AppStudio. From the next deployment on - and if the "live-reload"-capable web server is running - your application will automatically be modified and/or reloaded whenever any change in the deployment folder is detected.
+Just "copy-and-paste" the shown texts from here into AppStudio. From the next deployment on (provided that the "live-reload"-capable web server is running) your application will automatically be updated and/or reloaded whenever any change in the deployment folder is detected.
 
 ## Installation and Use ##
 
