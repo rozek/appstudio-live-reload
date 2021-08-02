@@ -16,7 +16,7 @@ A common solution to this problem is "[live-reloading](http://livereload.com/)" 
 
 ## Prerequisites ##
 
-`appstudio-live-reload` requires Node.js. Since you are visiting this page, the chance is high that you already have Node.js installed on your machine - if not, please follow the instructions found on [nodejs.org](https://nodejs.org/) to install it (the LTS version is sufficient if you don't plan to use Node.js on a regular basis)
+`appstudio-live-reload` requires Node.js. Since you are visiting this page, chances are good that you already have Node.js installed on your machine - if not, please follow the instructions found on [nodejs.org](https://nodejs.org/) to install it (the LTS version is sufficient if you don't plan to use Node.js on a regular basis)
 
 ## Installation ##
 
