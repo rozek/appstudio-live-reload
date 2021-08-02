@@ -34,7 +34,7 @@ npm install --save appstudio-live-reload
 * extraFiles: `./node_modules/appstudio-live-reload/live-reload.js`
 * extraheaders: `<script src="./node_modules/appstudio-live-reload/live-reload.js "></script>`
 
-Simply copy the shown texts from here into AppStudio. From the next deployment on, your application will automatically be modified and/or reloaded whenever the "live-reload"-capable server is running and detects any changes in the deployment folder.
+Simply copy the shown texts from here into AppStudio. From the next deployment on, your application will automatically be modified and/or reloaded whenever the "live-reload"-capable server is running (see below) and detects any changes in the deployment folder.
 
 ## Usage ##
 
