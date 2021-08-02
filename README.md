@@ -18,6 +18,15 @@ A common solution to this problem is "[live-reloading](http://livereload.com/)" 
 
 `appstudio-live-reload` requires Node.js. Since you are visiting this page, chances are good that you already have Node.js installed on your machine - if not, please follow the instructions found on [nodejs.org](https://nodejs.org/) to install it (the LTS version is sufficient if you don't plan to use Node.js on a regular basis)
 
+## App Preparation ##
+
+`livereload` requires a small helper script to be added to your project. Within Appstudio, add the following lines to the `extraFiles` and `extraheaders` of your project settings (found in the "Project Explorer")
+
+* extraFiles: `live-reload.js`
+* extraheaders: `<script src="live-reload.js "></script>`
+
+Simply copy the shown texts from here into AppStudio. From the next deployment on, your application will automatically be modified and/or reloaded whenever the "live-reload"-capable server is running (see below) and detects any changes in the deployment folder.
+
 ## Installation and Use ##
 
 `appstudio-live-reload` may either be used with or without prior installation.
@@ -71,15 +80,6 @@ https://a.b.c.d:34567
 ```
 
 where `a.b.c.d` stands for the IP address of your development machine.
-
-## App Preparation ##
-
-`livereload` requires a small helper script to be added to your project. Within Appstudio, add the following lines to the `extraFiles` and `extraheaders` of your project settings (found in the "Project Explorer")
-
-* extraFiles: `live-reload.js`
-* extraheaders: `<script src="live-reload.js "></script>`
-
-Simply copy the shown texts from here into AppStudio. From the next deployment on, your application will automatically be modified and/or reloaded whenever the "live-reload"-capable server is running (see below) and detects any changes in the deployment folder.
 
 ## License ##
 
