@@ -18,7 +18,9 @@ A common solution to this problem is "[live-reloading](http://livereload.com/)" 
 
 `appstudio-live-reload` offers "live-reloading" for AppStudio projects by providing both web and monitoring servers and the supplemental script (which is automatically configured for the monitoring server).
 
-For `appstudio-live-reload` to work as foreseen, the supplemental script has to be added to an AppStudio application (which is just a simple setting in the AppStudio "Project Explorer") and the servers started prior to new deployments (in order to configure the supplemental script for the actual IP address of your development machine). After an initial deployment, you may now navigate to the application from any browser (even multiple browsers simultaneously) and any new deployment will automatically update or reload the application on any connected browser 
+For `appstudio-live-reload` to work as foreseen, the supplemental script has to be added to an AppStudio application (which is just a simple setting in the AppStudio "Project Explorer") and the servers started prior to new deployments (in order to configure the supplemental script for the actual IP address of your development machine). After an initial deployment, you may now navigate to the application from any browser (even multiple browsers simultaneously) and any new deployment will automatically update or reload the application on any connected browser.
+
+The supplemental script may be removed for official releases - otherwise, it will just fail to contact the monitoring server and the application work as usual (i.e., without any automatic update or reload)
 
 **NPM users**: please consider the [Github README](https://github.com/rozek/appstudio-live-reload/blob/main/README.md) for the latest description of this package (as updating the docs would otherwise always require a new NPM package version)
 
@@ -28,12 +30,12 @@ For `appstudio-live-reload` to work as foreseen, the supplemental script has to 
 
 ## App Preparation ##
 
-`livereload` requires a small helper script to be added to your project. Within Appstudio, add the following lines to the `extraFiles` and `extraheaders` of your project settings (found in the "Project Explorer")
+`livereload` requires a small supplemental script to be added to your project. Within Appstudio, add the following lines to the `extraFiles` and `extraheaders` of your project settings (found in the "Project Explorer")
 
 * **extraFiles**: `live-reload.js`
 * **extraheaders**: `<script src="live-reload.js"></script>`
 
-Just "copy-and-paste" the shown texts from here into AppStudio. From the next deployment on (provided that the "live-reload"-capable web server is running) your application will automatically be updated and/or reloaded whenever any change in the deployment folder is detected.
+Just "copy-and-paste" the shown texts from here into AppStudio. From the next deployment on (provided that the "monitoring server" is running) your application will automatically be updated and/or reloaded whenever any change in the deployment folder is detected.
 
 ## Installation and Use ##
 
@@ -46,13 +48,13 @@ cd XXX.appstudio
 npm install --save appstudio-live-reload
 ```
 
-You may then start a "live-reload"-capable web server using
+You may then start web and monitoring server using
 
 ```
 npx appstudio-live-reload
 ```
 
-From then on, every deployment of your project (into a local folder) will be detected and any connected browser instructed to update or reload the application. Simply navigate to
+From then on, every local deployment of your project (and any changes made by external tools) will be detected and any connected browser instructed to update or reload the application. Simply navigate to
 
 ```
 https://localhost:34567
@@ -68,14 +70,16 @@ where `a.b.c.d` stands for the IP address of your development machine.
 
 ## Use without explicit Installation
 
-If you do not want to install `appstudio-live-reload`, just navigate to the folder for your AppStudio project and start a "live-reload"-capable web server using
+If you do not want to install `appstudio-live-reload`, just open a terminal window, navigate to the folder for your AppStudio project and start web and monitoring server using
 
 ```
 cd XXX.appstudio
 npx appstudio-live-reload
 ```
 
-Again, every subsequent deployment of your project (into a local folder) will be detected and any connected browser instructed to update or reload the application. Simply navigate to
+When invoked for the first time, you may be asked whether you really want to load `appstudio-live-reload` - in that case, simply press "Return" or "Enter" to proceed.
+
+From now on, again, every subsequent local deployment of your project (and any changes made by external tools) will be detected and any connected browser instructed to update or reload the application. Simply navigate to
 
 ```
 https://localhost:34567
