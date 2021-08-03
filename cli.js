@@ -23,17 +23,17 @@ import('javascript-interface-library').then((JIL) => {
 /**** parse command line arguments ****/
 
   let {
-    port:  WebServerPort = 34567,
-    reload:ReloadPort    = 35729,
-    delay: ReloadDelay   = 100,
-    usePolling           = false
+    port:   WebServerPort = 34567,
+    monitor:MonitorPort   = 35729,
+    delay:  ReloadDelay   = 100,
+    usePolling            = false
   } = require('command-line-parser')({ booleanKeys:['usePolling'] })
 
-  expectIntegerInRange   ('web server "port"',WebServerPort, 2001,65535)
-  expectIntegerInRange('"reload" server port',ReloadPort,    2001,65535)
+  expectIntegerInRange    ('web server port',WebServerPort, 2001,65535)
+  expectIntegerInRange('monitor server port',MonitorPort,   2001,65535)
 
-  if (WebServerPort === ReloadPort) throwError(
-    'InvalidArgument: web server and reload server must not use the same port'
+  if (WebServerPort === MonitorPort) throwError(
+    'InvalidArgument: web server and monitor server must not use the same port'
   )
 
   expectOrdinal   ('reload "delay"',ReloadDelay)
@@ -52,23 +52,23 @@ import('javascript-interface-library').then((JIL) => {
     }
   IPAddresses.sort()
 
-/**** provide helper script ****/
+/**** provide supplemental script ****/
 
-  let HelperScript = `//------------------------------------------------------------------------------
-//--                  appstudio-live-reload - Helper Script                   --
+  let supplementalScript = `//------------------------------------------------------------------------------
+//--               appstudio-live-reload - supplemental Script                --
 //------------------------------------------------------------------------------
 
-  const ReloadPort = '{{ReloadPort}}'
-  if (ReloadPort !== '') {
-    let ReloadServer = window.location.hostname + ':' + ReloadPort
+  const MonitorPort = '{{MonitorPort}}'
+  if (MonitorPort !== '') {
+    let MonitorServer = window.location.hostname + ':' + MonitorPort
 
-    let ReloadScript = document.createElement('script')
-      document.head.appendChild(ReloadScript)
-    ReloadScript.src = 'http://' + ReloadServer + '/livereload.js?snipver=1'
+    let MonitorScript = document.createElement('script')
+      document.head.appendChild(MonitorScript)
+    MonitorScript.src = 'http://' + MonitorServer + '/livereload.js?snipver=1'
   }
-  `.replace('{{ReloadPort}}',ReloadPort)
+  `.replace('{{MonitorPort}}',MonitorPort)
 
-  fs.writeFileSync(path.join(BaseFolder,'live-reload.js'),HelperScript)
+  fs.writeFileSync(path.join(BaseFolder,'live-reload.js'),supplementalScript)
 
 /**** create, configure and start servers ****/
 
@@ -77,22 +77,22 @@ import('javascript-interface-library').then((JIL) => {
   WebServer.listen(WebServerPort)
 
   const livereload = require('livereload')
-    let ReloadServer = livereload.createServer({  // server watching for changes
-      port:ReloadPort,
+    let MonitoringServer = livereload.createServer({     // watching for changes
+      port: MonitorPort,
       delay:ReloadDelay,           // because many files will be changed at once
       usePolling
     }, reportAvailability)
-  ReloadServer.watch(DeploymentFolder)
+  MonitoringServer.watch(DeploymentFolder)
 
   function reportAvailability () {
     console.clear()
 
     console.log('livereload-server')
     console.log('- AppStudio Project: "' + ProjectName + '"')
-    console.log('- Deploxment Folder: "' + DeploymentFolder + '"')
+    console.log('- Deployment Folder: "' + DeploymentFolder + '"')
     console.log('- IPv4 Addresses:')
       IPAddresses.forEach((IPAddress) => console.log('  - ' + IPAddress))
     console.log('- Web Server Port:  ' + WebServerPort)
-    console.log('- Live-Reload Port: ' + ReloadPort)
+    console.log('- Monitoring Port:  ' + MonitorPort)
   }
 })
