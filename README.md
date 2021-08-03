@@ -8,9 +8,13 @@ For the purpose of testing, AppStudio projects may be deployed to the local file
 
 While this procedure sounds convenient at a first glance, it may become cumbersome as soon as one starts developing for smartphone or tablets and wants to preview and test snapshots on these external devices (rather than on the desktop). A similar situation occurs when AppStudio is used for UI development only, and business logic and/or style sheets are developed with the help of third-party tools (e.g., in order to benefit from preprocessors such as TypeScript, Babel, SASS etc.) - in such a case, changing an external file would always  require an additional deployment via AppStudio although a simple file copy could be sufficient.
 
+**Live Reloading**
+
 A common solution to this problem is "[live-reloading](http://livereload.com/)" of web pages (also available as an [NPM package](https://www.npmjs.com/package/livereload) for more platforms than just macOS)
 
 "Live-reloading" uses an additional "monitoring server" (besides the normal web server) which monitors a given deployment folder and informs any connected application to update or reload itself whenever any changes in the deployment folder are detected. For that purpose, the application is supplemented by a small script which handles communication with the monitoring server and performs any updates or reloads whenever needed.
+
+**appstudio-live-reload**
 
 `appstudio-live-reload` offers "live-reloading" for AppStudio projects by providing by providing both web and monitoring servers and the supplemental script (which is automatically configured for the monitoring server).
 
