@@ -87,7 +87,7 @@ import('javascript-interface-library').then((JIL) => {
   function reportAvailability () {
     console.clear()
 
-    console.log('livereload-server')
+    console.log('appstudio-live-reload')
     console.log('- AppStudio Project: "' + ProjectName + '"')
     console.log('- Deployment Folder: "' + DeploymentFolder + '"')
     console.log('- IPv4 Addresses:')
