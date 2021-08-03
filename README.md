@@ -77,7 +77,7 @@ cd XXX.appstudio
 npx appstudio-live-reload
 ```
 
-When invoked for the first time, you may be asked whether you really want to load `appstudio-live-reload` - in that case, simply press "Return" or "Enter" to proceed.
+When invoked for the first time, you may be asked whether you really want to "install" `appstudio-live-reload` - in that case, do not worry and simply press "Return" or "Enter" to proceed: your project folder will remain "clean".
 
 From now on, again, every subsequent local deployment of your project (and any changes made by external tools) will be detected and any connected browser instructed to update or reload the application. Simply navigate to
 
