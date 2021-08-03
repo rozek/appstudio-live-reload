@@ -1,6 +1,6 @@
 {
   "name": "appstudio-live-reload",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "a simple web server with \"live-reload\" for NSB/AppStudio",
   "bin": {
     "appstudio-live-reload": "cli.js",
