@@ -70,7 +70,7 @@ where `a.b.c.d` stands for the IP address of your development machine.
 
 ## Use without explicit Installation
 
-If you do not want to install `appstudio-live-reload`, just open a terminal window, navigate to the folder for your AppStudio project and start web and monitoring server using
+If you do not want to install `appstudio-live-reload` (e.g., because you do not want to pollute your project folder with `node_modules/`, `package-lock.json` and `package.json`), just open a terminal window, navigate to the folder for your AppStudio project and start web and monitoring server using
 
 ```
 cd XXX.appstudio
