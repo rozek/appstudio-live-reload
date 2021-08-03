@@ -12,7 +12,9 @@ A common solution to this problem is "[live-reloading](http://livereload.com/)" 
 
 "Live-reloading" uses an additional "monitoring server" (besides the normal web server) which monitors a given deployment folder and informs any connected application to update or reload itself whenever any changes in the deployment folder are detected. For that purpose, the application is supplemented by a small script which handles communication with the monitoring server and performs any updates or reloads whenever needed.
 
-`appstudio-live-reload` provides "live-reloading" for AppStudio projects.
+`appstudio-live-reload` offers "live-reloading" for AppStudio projects by providing by providing both web and monitoring servers and the supplemental script (which is automatically configured for the monitoring server).
+
+For `appstudio-live-reload` to work as foreseen, the supplemental script has to be added to an AppStudio application (which is just a simple setting in the AppStudio "Project Explorer") and the servers started prior to new deployments (in order to configure the supplemental script for the actual IP address of your development machine). After an initial deployment, you may now navigate to the application from any browser (even multiple browsers simultaneously) and any new deployment will automatically update or reload the application on any connected browser 
 
 **NPM users**: please consider the [Github README](https://github.com/rozek/appstudio-live-reload/blob/main/README.md) for the latest description of this package (as updating the docs would otherwise always require a new NPM package version)
 
