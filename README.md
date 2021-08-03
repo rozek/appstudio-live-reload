@@ -6,9 +6,11 @@ a simple web server with "live-reload" for NSB/AppStudio
 
 For the purpose of testing, AppStudio projects may be deployed to the local file system where they are read by an automatically started web server and sent to any connecting web browser.
 
-While this procedure sounds convenient at a first glance, it may become cumbersome as soon as one starts developing for smartphone or tablets and wants to preview and test snapshots on these external devices (rather than on the desktop). A similar situation occurs when AppStudio is only used for UI development only, and business logic and/or style sheets are developed using third-party tools (e.g., in order to benefit from preprocessors such as TypeScript, Babel, SASS etc.) - in such a case, changing an external file would always require an explicit deployment using AppStudio itself even if actually a simple file copy could be sufficient.
+While this procedure sounds convenient at a first glance, it may become cumbersome as soon as one starts developing for smartphone or tablets and wants to preview and test snapshots on these external devices (rather than on the desktop). A similar situation occurs when AppStudio is used for UI development only, and business logic and/or style sheets are developed with the help of third-party tools (e.g., in order to benefit from preprocessors such as TypeScript, Babel, SASS etc.) - in such a case, changing an external file would always  require an additional deployment via AppStudio although a simple file copy could be sufficient.
 
-A common solution to this problem is "[live-reloading](http://livereload.com/)" of web pages (also available as an [NPM package](https://www.npmjs.com/package/livereload))
+A common solution to this problem is "[live-reloading](http://livereload.com/)" of web pages (also available as an [NPM package](https://www.npmjs.com/package/livereload) for more platforms than just macOS)
+
+"Live-reloading" uses an additional "monitoring server" (besides the normal web server) which monitors a given deployment folder and informs any connected application to update or reload itself whenever any changes in the deployment folder are detected. For that purpose, the application is supplemented by a small script which handles communication with the monitoring server and performs any updates or reloads whenever needed.
 
 `appstudio-live-reload` provides "live-reloading" for AppStudio projects.
 
