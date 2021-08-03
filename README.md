@@ -4,7 +4,7 @@ a simple web server with "live-reload" for NSB/AppStudio
 
 [NSB/AppStudio](https://www.nsbasic.com/) is a simple visual IDE to create applications for iOS, Android, Windows, macOS and Linux. These applications are based on Web technologies and may be written in JavaScript or BASIC. Combined with [VoltCloud.io](https://voltcloud.io/) (a deployment server which also integrates basic user management and a simple key-value store) AppStudio simplifies the development of applications for multiple independent users.
 
-For the purpose of testing, AppStudio projects may be deployed to the local file system where they are read by an automatically started web server and served to any connecting web browser.
+For the purpose of testing, AppStudio projects may be deployed to the local file system where they are read by an automatically started web server and sent to any connecting web browser.
 
 While this procedure sounds convenient at a first glance, it may become cumbersome as soon as one starts developing for smartphone, tablets, convertibles (or even VR glasses) and wants to preview and test snapshots on these external devices (rather than on the desktop). A similar situation occurs when AppStudio is only used for UI development only, and business logic and/or style sheets are developed using third-party tools (e.g., in order to benefit from preprocessors such as TypeScript, Babel, SASS etc.) - in such a case, changing an external file would always require an explicit deployment using AppStudio itself even if actually a simple file copy could be sufficient.
 
